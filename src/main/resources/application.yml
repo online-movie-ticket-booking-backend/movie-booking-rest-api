@@ -1,0 +1,32 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /movie-booking-rest-api
+logging:
+  file:
+    name: D:/Development/WS/log/local/movie-booking-rest-api/movie-booking-rest-api.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework: INFO
+    org.hibernate: INFO
+    org.example.movie.booking: INFO
+    org.springframework.web: TRACE
+axon:
+  axonserver:
+    client-id: movie-booking-api
+    servers: localhost:20007
+spring:
+  kafka:
+    bootstrap-servers: localhost:20010
+    admin:
+      client-id: movie-booking-api
+
+
+kafka:
+  groupName: movie-schedule
+  movieBookingApi:
+    checkSeatInventory:
+      topic:
+        request: check-seat-inventory
